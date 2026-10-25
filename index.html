@@ -40,118 +40,52 @@
             text-align: center;
         }
 
-        header h1 {
-            margin: 0 0 10px 0;
-            font-size: 1.8rem;
-        }
+        header h1 { margin: 0 0 10px 0; font-size: 1.8rem; }
+        header p { margin: 0; opacity: 0.9; font-size: 0.95rem; }
 
-        header p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-
-        .section {
-            padding: 25px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-top: 0;
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .section { padding: 25px; border-bottom: 1px solid var(--border); }
+        .section-title { font-size: 1.3rem; color: var(--dark); margin-top: 0; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
 
         /* 航班卡片 */
-        .flight-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-        }
-
-        .flight-card {
-            background: var(--gray);
-            border-left: 4px solid var(--primary);
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .flight-card.return {
-            border-left-color: var(--secondary);
-        }
-
-        .flight-title {
-            font-weight: bold;
-            font-size: 1.05rem;
-            margin-bottom: 8px;
-            color: var(--dark);
-        }
-
-        .flight-detail {
-            font-size: 0.9rem;
-            color: #555;
-            margin: 4px 0;
-        }
+        .flight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .flight-card { background: var(--gray); border-left: 4px solid var(--primary); padding: 15px; border-radius: 0 8px 8px 0; }
+        .flight-card.return { border-left-color: var(--secondary); }
+        .flight-title { font-weight: bold; font-size: 1.05rem; margin-bottom: 8px; color: var(--dark); }
+        .flight-detail { font-size: 0.9rem; color: #555; margin: 4px 0; }
 
         /* 行程卡片 */
-        .day-card {
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+        .day-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
+        .day-header { background: var(--primary-light); padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .day-title { font-weight: bold; color: var(--primary); font-size: 1.05rem; }
+        .day-date { background: var(--primary); color: white; padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; }
+        
+        .day-body { padding: 18px; }
+        .day-body ul { margin: 0; padding-left: 20px; font-size: 0.92rem; color: #444; }
+        .day-body li { margin-bottom: 8px; }
 
-        .day-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
+        /* 地圖按鈕與連結樣式 */
+        .map-link { color: #1a73e8; text-decoration: none; font-weight: 500; }
+        .map-link:hover { text-decoration: underline; }
 
-        .day-header {
-            background: var(--primary-light);
-            padding: 12px 18px;
-            display: flex;
-            justify-content: space-between;
+        .route-btn {
+            display: inline-flex;
             align-items: center;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .day-title {
+            gap: 5px;
+            background: #e8f0fe;
+            color: #1967d2;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: bold;
-            color: var(--primary);
-            font-size: 1.05rem;
+            text-decoration: none;
+            margin-bottom: 12px;
+            border: 1px solid #aecbfa;
         }
-
-        .day-date {
-            background: var(--primary);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-        }
-
-        .day-body {
-            padding: 18px;
-        }
-
-        .day-body ul {
-            margin: 0;
-            padding-left: 20px;
-            font-size: 0.92rem;
-            color: #444;
-        }
-
-        .day-body li {
-            margin-bottom: 6px;
-        }
+        .route-btn:hover { background: #d2e3fc; }
 
         .hotel-tag {
             display: inline-block;
-            margin-top: 12px;
+            margin-top: 10px;
             background: #fff3e0;
             color: #e65100;
             padding: 6px 12px;
@@ -160,40 +94,14 @@
             font-weight: bold;
             border: 1px solid #ffe0b2;
         }
+        .hotel-tag a { color: #e65100; text-decoration: none; }
+        .hotel-tag a:hover { text-decoration: underline; }
 
-        /* 提醒卡片 */
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
+        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .tip-box { background: #fef7e0; border: 1px solid #ffe082; padding: 15px; border-radius: 8px; font-size: 0.9rem; }
+        .tip-box h4 { margin: 0 0 8px 0; color: #b78103; }
 
-        .tip-box {
-            background: #fef7e0;
-            border: 1px solid #ffe082;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-        }
-
-        .tip-box h4 {
-            margin: 0 0 8px 0;
-            color: #b78103;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.85rem;
-            color: #777;
-            background: var(--gray);
-        }
-
-        @media print {
-            body { background: #fff; padding: 0; }
-            .container { box-shadow: none; border-radius: 0; }
-            .day-card { break-inside: avoid; }
-        }
+        footer { text-align: center; padding: 20px; font-size: 0.85rem; color: #777; background: var(--gray); }
     </style>
 </head>
 <body>
@@ -225,7 +133,7 @@
 
     <!-- 每日行程 -->
     <div class="section">
-        <h2 class="section-title">🗺️ 每日自駕行程與住宿規劃</h2>
+        <h2 class="section-title">🗺️ 每日自駕行程與地圖導航</h2>
 
         <!-- Day 1 -->
         <div class="day-card">
@@ -234,12 +142,13 @@
                 <span class="day-date">7/2 (五)</span>
             </div>
             <div class="day-body">
+                <a href="https://www.google.com/maps/dir/New+Chitose+Airport/JR+Tower+Hotel+Nikko+Sapporo/Odori+Park/Tanukikoji+Shopping+Street/" target="_blank" class="route-btn">🗺️ 開啟 Day 1 Google Maps 路線導航</a>
                 <ul>
-                    <li>15:00 抵達新千歲機場，辦理入境與租車手續。</li>
+                    <li>15:00 抵達<a href="https://maps.google.com/?q=New+Chitose+Airport" target="_blank" class="map-link">新千歲機場 📍</a>，辦理入境與租車手續。</li>
                     <li>驅車前往札幌市區（車程約 1 小時），辦理飯店入住。</li>
-                    <li>傍晚漫步大通公園，晚間至狸小路享用湯咖哩或札幌味噌拉麵。</li>
+                    <li>傍晚漫步<a href="https://maps.google.com/?q=Odori+Park+Sapporo" target="_blank" class="map-link">大通公園 📍</a>，晚間至<a href="https://maps.google.com/?q=Tanukikoji+Shopping+Street" target="_blank" class="map-link">狸小路商店街 📍</a>享用湯咖哩或札幌味噌拉麵。</li>
                 </ul>
-                <div class="hotel-tag">🏨 住宿：JR Tower Hotel Nikko Sapporo（JR 塔日航札幌飯店）</div>
+                <div class="hotel-tag">🏨 住宿：<a href="https://maps.google.com/?q=JR+Tower+Hotel+Nikko+Sapporo" target="_blank">JR Tower Hotel Nikko Sapporo（JR 塔日航札幌飯店）📍</a></div>
             </div>
         </div>
 
@@ -250,13 +159,14 @@
                 <span class="day-date">7/3 (六)</span>
             </div>
             <div class="day-body">
+                <a href="https://www.google.com/maps/dir/JR+Tower+Hotel+Nikko+Sapporo/Otaru+Canal/Otaru+Music+Box+Museum/" target="_blank" class="route-btn">🗺️ 開啟 Day 2 Google Maps 路線導航</a>
                 <ul>
                     <li>自駕前往小樽（車程約 45 分鐘）。</li>
-                    <li>漫步小樽運河，參觀沿岸紅磚倉庫群。</li>
-                    <li>逛堺町通商店街，參觀音樂盒堂與北一硝子，品嚐 LeTAO 乳酪蛋糕與海鮮丼。</li>
+                    <li>漫步<a href="https://maps.google.com/?q=Otaru+Canal" target="_blank" class="map-link">小樽運河 📍</a>，參觀沿岸紅磚倉庫群。</li>
+                    <li>逛<a href="https://maps.google.com/?q=Sakaimachi+Street+Otaru" target="_blank" class="map-link">堺町通商店街 📍</a>，參觀<a href="https://maps.google.com/?q=Otaru+Music+Box+Museum" target="_blank" class="map-link">小樽音樂盒堂 📍</a>與<a href="https://maps.google.com/?q=Kitaichi+Glass+Otaru" target="_blank" class="map-link">北一硝子 📍</a>，品嚐 LeTAO 乳酪蛋糕與海鮮丼。</li>
                     <li>傍晚返回札幌市區休息。</li>
                 </ul>
-                <div class="hotel-tag">🏨 住宿：JR Tower Hotel Nikko Sapporo（JR 塔日航札幌飯店）</div>
+                <div class="hotel-tag">🏨 住宿：<a href="https://maps.google.com/?q=JR+Tower+Hotel+Nikko+Sapporo" target="_blank">JR Tower Hotel Nikko Sapporo（JR 塔日航札幌飯店）📍</a></div>
             </div>
         </div>
 
@@ -267,12 +177,13 @@
                 <span class="day-date">7/4 (日)</span>
             </div>
             <div class="day-body">
+                <a href="https://www.google.com/maps/dir/JR+Tower+Hotel+Nikko+Sapporo/Asahiyama+Zoo/Shikisai+no+Oka/Ningle+Terrace/Hotel+Naturwald+Furano/" target="_blank" class="route-btn">🗺️ 開啟 Day 3 Google Maps 路線導航</a>
                 <ul>
-                    <li>出發前往旭川（車程約 2 小時），造訪旭山動物園（觀賞北極熊與海豹）。</li>
-                    <li>午後前往美瑛，欣賞「四季彩之丘」壯觀的七彩花田。</li>
-                    <li>傍晚前往新富良野王子大飯店旁的「精靈露台」，欣賞木屋步道燈火。</li>
+                    <li>出發前往旭川（車程約 2 小時），造訪<a href="https://maps.google.com/?q=Asahiyama+Zoo" target="_blank" class="map-link">旭山動物園 📍</a>（觀賞北極熊與海豹）。</li>
+                    <li>午後前往美瑛，欣賞<a href="https://maps.google.com/?q=Shikisai+no+Oka" target="_blank" class="map-link">四季彩之丘 📍</a>壯觀的七彩花田。</li>
+                    <li>傍晚前往新富良野王子大飯店旁的<a href="https://maps.google.com/?q=Ningle+Terrace" target="_blank" class="map-link">精靈露台 📍</a>，欣賞木屋步道燈火。</li>
                 </ul>
-                <div class="hotel-tag">🏨 住宿：Hotel Naturwald Furano（富良野自然森林飯店）</div>
+                <div class="hotel-tag">🏨 住宿：<a href="https://maps.google.com/?q=Hotel+Naturwald+Furano" target="_blank">Hotel Naturwald Furano（富良野自然森林飯店）📍</a></div>
             </div>
         </div>
 
@@ -283,12 +194,13 @@
                 <span class="day-date">7/5 (一)</span>
             </div>
             <div class="day-body">
+                <a href="https://www.google.com/maps/dir/Hotel+Naturwald+Furano/Farm+Tomita/Shirogane+Blue+Pond/Shirahige+Waterfall/" target="_blank" class="route-btn">🗺️ 開啟 Day 4 Google Maps 路線導航</a>
                 <ul>
-                    <li>上午造訪「富田農場」，欣賞盛開的紫色薰衣草花海，品嚐薰衣草霜淇淋。</li>
-                    <li>下午驅車前往鈷藍色的「美瑛青池」與「白鬚瀑布」。</li>
+                    <li>上午造訪<a href="https://maps.google.com/?q=Farm+Tomita" target="_blank" class="map-link">富田農場 📍</a>，欣賞盛開的紫色薰衣草花海，品嚐薰衣草霜淇淋。</li>
+                    <li>下午驅車前往鈷藍色的<a href="https://maps.google.com/?q=Shirogane+Blue+Pond" target="_blank" class="map-link">美瑛青池 📍</a>與<a href="https://maps.google.com/?q=Shirahige+Waterfall" target="_blank" class="map-link">白鬚瀑布 📍</a>。</li>
                     <li>享受富良野田園風光與在地料理。</li>
                 </ul>
-                <div class="hotel-tag">🏨 住宿：Hotel Naturwald Furano（富良野自然森林飯店）</div>
+                <div class="hotel-tag">🏨 住宿：<a href="https://maps.google.com/?q=Hotel+Naturwald+Furano" target="_blank">Hotel Naturwald Furano（富良野自然森林飯店）📍</a></div>
             </div>
         </div>
 
@@ -299,12 +211,13 @@
                 <span class="day-date">7/6 (二)</span>
             </div>
             <div class="day-body">
+                <a href="https://www.google.com/maps/dir/Hotel+Naturwald+Furano/Noboribetsu+Jigokudani/Lake+Toya/" target="_blank" class="route-btn">🗺️ 開啟 Day 5 Google Maps 路線導航</a>
                 <ul>
-                    <li>南下開往登別（車程約 3 小時），遊覽煙霧繚繞的「登別地獄谷」。</li>
-                    <li>傍晚抵達洞爺湖溫泉區辦理入住。</li>
+                    <li>南下開往登別（車程約 3 小時），遊覽煙霧繚繞的<a href="https://maps.google.com/?q=Noboribetsu+Jigokudani" target="_blank" class="map-link">登別地獄谷 📍</a>。</li>
+                    <li>傍晚抵達<a href="https://maps.google.com/?q=Lake+Toya" target="_blank" class="map-link">洞爺湖 📍</a>溫泉區辦理入住。</li>
                     <li>晚餐後於湖畔欣賞夏季限定的「洞爺湖長期花火大會」（20:45 施放）。</li>
                 </ul>
-                <div class="hotel-tag">🏨 住宿：洞爺湖地區溫泉飯店（乃之風 / 鶴雅洸之謌 / 洞爺湖溫莎飯店）</div>
+                <div class="hotel-tag">🏨 住宿：洞爺湖地區溫泉飯店（乃之風 / 鶴雅洸之謌 / 洞爺湖溫莎飯店）📍</div>
             </div>
         </div>
 
@@ -315,12 +228,13 @@
                 <span class="day-date">7/7 (三)</span>
             </div>
             <div class="day-body">
+                <a href="https://www.google.com/maps/dir/Lake+Toya/Showa-shinzan/Onuma+Quasi-National+Park/Mt.+Hakodate+Observatory/Century+Marina+Hakodate/" target="_blank" class="route-btn">🗺️ 開啟 Day 6 Google Maps 路線導航</a>
                 <ul>
-                    <li>參觀「昭和新山」火山奇景。</li>
-                    <li>順遊「大沼國定公園」，租借腳踏車環湖或漫步步道。</li>
-                    <li>抵達函館，傍晚搭乘纜車登上函館山，欣賞世界級百萬夜景。</li>
+                    <li>參觀<a href="https://maps.google.com/?q=Showa-shinzan" target="_blank" class="map-link">昭和新山 📍</a>火山奇景。</li>
+                    <li>順遊<a href="https://maps.google.com/?q=Onuma+Quasi-National+Park" target="_blank" class="map-link">大沼國定公園 📍</a>，租借腳踏車環湖或漫步步道。</li>
+                    <li>抵達函館，傍晚搭乘纜車登上<a href="https://maps.google.com/?q=Mt.+Hakodate+Observatory" target="_blank" class="map-link">函館山展望台 📍</a>，欣賞世界級百萬夜景。</li>
                 </ul>
-                <div class="hotel-tag">🏨 住宿：Century Marina Hakodate（函館世紀瑪麗娜飯店）</div>
+                <div class="hotel-tag">🏨 住宿：<a href="https://maps.google.com/?q=Century+Marina+Hakodate" target="_blank">Century Marina Hakodate（函館世紀瑪麗娜飯店）📍</a></div>
             </div>
         </div>
 
@@ -331,12 +245,13 @@
                 <span class="day-date">7/8 (四)</span>
             </div>
             <div class="day-body">
+                <a href="https://www.google.com/maps/dir/Century+Marina+Hakodate/Goryokaku+Tower/Kanemori+Red+Brick+Warehouse/Hachiman-zaka+Slope/" target="_blank" class="route-btn">🗺️ 開啟 Day 7 Google Maps 路線導航</a>
                 <ul>
-                    <li>登「五稜郭塔」俯瞰綠意盎然的西洋星形要塞全景。</li>
-                    <li>漫步金森紅磚倉庫群與八幡坂斜坡，探訪元町異國風情教堂。</li>
+                    <li>登<a href="https://maps.google.com/?q=Goryokaku+Tower" target="_blank" class="map-link">五稜郭塔 📍</a>俯瞰綠意盎然的西洋星形要塞全景。</li>
+                    <li>漫步<a href="https://maps.google.com/?q=Kanemori+Red+Brick+Warehouse" target="_blank" class="map-link">金森紅磚倉庫群 📍</a>與<a href="https://maps.google.com/?q=Hachiman-zaka+Slope" target="_blank" class="map-link">八幡坂 📍</a>，探訪元町異國風情教堂。</li>
                     <li>品嚐函館限定「幸運小丑漢堡」或海鮮居酒屋。</li>
                 </ul>
-                <div class="hotel-tag">🏨 住宿：Century Marina Hakodate（函館世紀瑪麗娜飯店）</div>
+                <div class="hotel-tag">🏨 住宿：<a href="https://maps.google.com/?q=Century+Marina+Hakodate" target="_blank">Century Marina Hakodate（函館世紀瑪麗娜飯店）📍</a></div>
             </div>
         </div>
 
@@ -347,12 +262,13 @@
                 <span class="day-date">7/9 (五)</span>
             </div>
             <div class="day-body">
+                <a href="https://www.google.com/maps/dir/Century+Marina+Hakodate/Hakodate+Morning+Market/Yunokawa+Onsen/" target="_blank" class="route-btn">🗺️ 開啟 Day 8 Google Maps 路線導航</a>
                 <ul>
-                    <li>早晨造訪「函館朝市」，體驗現釣活烏賊與享用海鮮丼早餐。</li>
-                    <li>下午順遊特拉普派修道院或立待岬，亦可至湯之川溫泉體驗足湯。</li>
+                    <li>早晨造訪<a href="https://maps.google.com/?q=Hakodate+Morning+Market" target="_blank" class="map-link">函館朝市 📍</a>，體驗現釣活烏賊與享用海鮮丼早餐。</li>
+                    <li>下午順遊特拉普派修道院或立待岬，亦可至<a href="https://maps.google.com/?q=Yunokawa+Onsen" target="_blank" class="map-link">湯之川溫泉 📍</a>體驗足湯。</li>
                     <li>享受在北海道最後一個悠閒的夜晚。</li>
                 </ul>
-                <div class="hotel-tag">🏨 住宿：Century Marina Hakodate（函館世紀瑪麗娜飯店）</div>
+                <div class="hotel-tag">🏨 住宿：<a href="https://maps.google.com/?q=Century+Marina+Hakodate" target="_blank">Century Marina Hakodate（函館世紀瑪麗娜飯店）📍</a></div>
             </div>
         </div>
 
@@ -363,9 +279,10 @@
                 <span class="day-date">7/10 (六)</span>
             </div>
             <div class="day-body">
+                <a href="https://www.google.com/maps/dir/Century+Marina+Hakodate/Hakodate+Airport/" target="_blank" class="route-btn">🗺️ 開啟 Day 9 Google Maps 路線導航</a>
                 <ul>
                     <li>上午進行最後伴手禮採購與市區小憩。</li>
-                    <li>15:00 前前往函館機場旁租車門市辦理還車手續。</li>
+                    <li>15:00 前前往<a href="https://maps.google.com/?q=Hakodate+Airport" target="_blank" class="map-link">函館機場 📍</a>旁租車門市辦理還車手續。</li>
                     <li>17:45 搭乘星宇航空 JX861 班機順利返台。</li>
                 </ul>
                 <div class="hotel-tag">🏠 溫馨的家</div>
