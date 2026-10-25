@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2027 北海道 9 天 8 夜夏季自駕之旅</title>
+    <style>
+        :root {
+            --primary: #5c6bc0;
+            --primary-light: #e8eaf6;
+            --secondary: #26a69a;
+            --accent: #ff7043;
+            --dark: #2c3e50;
+            --gray: #f4f6f8;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3f51b5, #7986cb);
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .section {
+            padding: 25px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-top: 0;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 航班卡片 */
+        .flight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .flight-card {
+            background: var(--gray);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .flight-card.return {
+            border-left-color: var(--secondary);
+        }
+
+        .flight-title {
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .flight-detail {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 4px 0;
+        }
+
+        /* 行程卡片 */
+        .day-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .day-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .day-header {
+            background: var(--primary-light);
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .day-title {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+
+        .day-date {
+            background: var(--primary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .day-body {
+            padding: 18px;
+        }
+
+        .day-body h4 {
+            margin: 12px 0 6px 0;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .day-body ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.92rem;
+            color: #444;
+        }
+
+        .day-body li {
+            margin-bottom: 6px;
+        }
+
+        .hotel-tag {
+            display: inline-block;
+            margin-top: 12px;
+            background: #fff3e0;
+            color: #e65100;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        /* 提醒卡片 */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .tip-box {
+            background: #fef7e0;
+            border: 1px solid #ffe082;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .tip-box h4 {
+            margin: 0 0 8px 0;
+            color: #b78103;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: #777;
+            background: var(--gray);
+        }
+
+        @media print {
+            body { background: #fff; padding: 0; }
+            .container { box-shadow: none; border-radius: 0; }
+            .day-card { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🌸 2027 北海道 9 天 8 夜夏季自駕行程</h1>
+        <p>新千歲進、函館出 ｜ 花海・溫泉・夜景漫遊</p>
+    </header>
+
+    <!-- 航班資訊 -->
+    <div class="section">
+        <h2 class="section-title">✈️ 航班預訂資訊</h2>
+        <div class="flight-grid">
+            <div class="flight-card">
+                <div class="flight-title">去程：長榮航空 BR116</div>
+                <div class="flight-detail">📅 <strong>日期：</strong>2027年7月2日 (五)</div>
+                <div class="flight-detail">🕒 <strong>時間：</strong>10:10 TPE 台北桃園 → 15:00 CTS 札幌新千歲</div>
+                <div class="flight-detail">🎫 <strong>訂位代號：</strong>DNG7YS</div>
+            </div>
+            <div class="flight-card return">
+                <div class="flight-title">回程：星宇航空 JX861</div>
+                <div class="flight-detail">📅 <strong>日期：</strong>2027年7月10日 (六)</div>
+                <div class="flight-detail">🕒 <strong>時間：</strong>17:45 HKD 函館 → 20:55 TPE 台北桃園</div>
+                <div class="flight-detail">🎫 <strong>訂位代號：</strong>F3J3HN</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 每日行程 -->
+    <div class="section">
+        <h2 class="section-title">🗺️ 每日自駕行程規劃</h2>
+
+        <!-- Day 1 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 1：抵達北海道 ➔ 札幌市區巡禮</span>
+                <span class="day-date">7/2 (五)</span>
+            </div>
+            <div class="day-body">
+                <ul>
+                    <li>15:00 抵達新千歲機場，辦理入境與租車手續。</li>
+                    <li>驅車前往札幌市區（車程約 1 小時），入住飯店。</li>
+                    <li>傍晚漫步大通公園，晚間至狸小路享用湯咖哩或札幌味噌拉麵。</li>
+                </ul>
+                <div class="hotel-tag">🏨 住宿：札幌市區飯店</div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 2：小樽浪漫運河與歷史街區一日遊</span>
+                <span class="day-date">7/3 (六)</span>
+            </div>
+            <div class="day-body">
+                <ul>
+                    <li>自駕前往小樽（車程約 45 分鐘）。</li>
+                    <li>漫步小樽運河，參觀沿岸紅磚倉庫群。</li>
+                    <li>逛堺町通商店街，參觀音樂盒堂與北一硝子，品嚐 LeTAO 乳酪蛋糕與海鮮丼。</li>
+                    <li>傍晚返回札幌市區休息。</li>
+                </ul>
+                <div class="hotel-tag">🏨 住宿：札幌市區飯店</div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 3：旭川動物園 ➔ 美瑛丘陵與精靈露台</span>
+                <span class="day-date">7/4 (日)</span>
+            </div>
+            <div class="day-body">
+                <ul>
+                    <li>出發前往旭川（車程約 2 小時），造訪旭山動物園（觀賞北極熊與海豹）。</li>
+                    <li>午後前往美瑛，欣賞「四季彩之丘」壯觀的七彩花田。</li>
+                    <li>傍晚前往新富良野王子大飯店旁的「精靈露台」，欣賞木屋步道燈火。</li>
+                </ul>
+                <div class="hotel-tag">🏨 住宿：富良野 / 美瑛地區</div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 4：富良野薰衣草花海 ➔ 美瑛夢幻青池</span>
+                <span class="day-date">7/5 (一)</span>
+            </div>
+            <div class="day-body">
+                <ul>
+                    <li>上午造訪「富田農場」，欣賞盛開的紫色薰衣草花海，品嚐薰衣草霜淇淋。</li>
+                    <li>下午驅車前往鈷藍色的「美瑛青池」與「白鬚瀑布」。</li>
+                    <li>享受富良野田園風光與在地料理。</li>
+                </ul>
+                <div class="hotel-tag">🏨 住宿：富良野地區</div>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 5：登別地獄谷 ➔ 洞爺湖花火大會</span>
+                <span class="day-date">7/6 (二)</span>
+            </div>
+            <div class="day-body">
+                <ul>
+                    <li>南下開往登別（車程約 3 小時），遊覽煙霧繚繞的「登別地獄谷」。</li>
+                    <li>傍晚抵達洞爺湖溫泉區辦理入住。</li>
+                    <li>晚餐後於湖畔欣賞夏季限定的「洞爺湖長期花火大會」（20:45 施放）。</li>
+                </ul>
+                <div class="hotel-tag">🏨 住宿：洞爺湖溫泉飯店</div>
+            </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 6：昭和新山 ➔ 大沼公園 ➔ 函館百萬夜景</span>
+                <span class="day-date">7/7 (三)</span>
+            </div>
+            <div class="day-body">
+                <ul>
+                    <li>參觀「昭和新山」火山奇景。</li>
+                    <li>順遊「大沼國定公園」，租借腳踏車環湖或漫步步道。</li>
+                    <li>抵達函館，傍晚搭乘纜車登上函館山，欣賞世界級百萬夜景。</li>
+                </ul>
+                <div class="hotel-tag">🏨 住宿：函館市區飯店</div>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 7：五稜郭星形要塞 ➔ 金森倉庫與元町</span>
+                <span class="day-date">7/8 (四)</span>
+            </div>
+            <div class="day-body">
+                <ul>
+                    <li>登「五稜郭塔」俯瞰綠意盎然的西洋星形要塞全景。</li>
+                    <li>漫步金森紅磚倉庫群與八幡坂斜坡，探訪元町異國風情教堂。</li>
+                    <li>品嚐函館限定「幸運小丑漢堡」或海鮮居酒屋。</li>
+                </ul>
+                <div class="hotel-tag">🏨 住宿：函館市區飯店</div>
+            </div>
+        </div>
+
+        <!-- Day 8 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 8：函館朝市嚐鮮 ➔ 湯之川溫泉與周邊漫遊</span>
+                <span class="day-date">7/9 (五)</span>
+            </div>
+            <div class="day-body">
+                <ul>
+                    <li>早晨造訪「函館朝市」，體驗現釣活烏賊與享用海鮮丼早餐。</li>
+                    <li>下午順遊特拉普派修道院或立待岬，亦可至湯之川溫泉體驗足湯。</li>
+                    <li>享受在北海道最後一個悠閒的夜晚。</li>
+                </ul>
+                <div class="hotel-tag">🏨 住宿：函館市區或湯之川溫泉</div>
+            </div>
+        </div>
+
+        <!-- Day 9 -->
+        <div class="day-card">
+            <div class="day-header">
+                <span class="day-title">Day 9：市區最後採買 ➔ 函館機場還車返台</span>
+                <span class="day-date">7/10 (六)</span>
+            </div>
+            <div class="day-body">
+                <ul>
+                    <li>上午進行最後伴手禮採購與市區小憩。</li>
+                    <li>15:00 前前往函館機場旁租車門市辦理還車手續。</li>
+                    <li>17:45 搭乘星宇航空 JX861 班機順利返台。</li>
+                </ul>
+                <div class="hotel-tag">🏠 溫馨的家</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 注意事項 -->
+    <div class="section">
+        <h2 class="section-title">💡 7月自駕實用提醒</h2>
+        <div class="tips-grid">
+            <div class="tip-box">
+                <h4>🚗 異地還車與 HEP</h4>
+                本行程為新千歲取車、函館還車，訂車時需勾選甲租乙還，並建議租用 ETC 卡與購買 HEP 高速公路通行證。
+            </div>
+            <div class="tip-box">
+                <h4>⏰ 日落與夜景時間</h4>
+                7 月北海道日落時間約為 19:15，觀賞函館山夜景最佳時間點為 19:45 ～ 20:30。
+            </div>
+            <div class="tip-box">
+                <h4>🌸 富良野避開人潮</h4>
+                7 月花季遊客較多，熱門農場（如富田農場）建議安排於早上 09:00 前抵達以避開塞車。
+            </div>
+            <div class="tip-box">
+                <h4>🧥 穿著建議</h4>
+                白天氣溫舒適（約 24~27°C），但早晚與山區/湖畔氣溫較低（約 16~18°C），建議攜帶薄外套備用。
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        祝您 2027 北海道自駕之旅順利愉快！
+    </footer>
+</div>
+
+</body>
+</html>
